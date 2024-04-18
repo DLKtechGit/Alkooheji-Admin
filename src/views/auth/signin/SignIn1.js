@@ -1,10 +1,9 @@
 import React from 'react';
-import { Card, Button, Alert } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { Card} from 'react-bootstrap';
+import { NavLink} from 'react-router-dom';
 
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
 
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import AuthLogin from './FirebaseLogin';
 
@@ -22,9 +21,9 @@ const Signin1 = () => {
           </div>
           <Card className="borderless text-center">
             <Card.Body>
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <i className="feather icon-unlock auth-icon" />
-              </div>
+              </div> */}
               <AuthLogin />
               <p className="mb-2 text-muted">
                 Forgot password?{' '}
@@ -32,13 +31,13 @@ const Signin1 = () => {
                   Reset
                 </NavLink>
               </p>
-              <p className="mb-0 text-muted">
+              {/* <p className="mb-0 text-muted">
                 Don’t have an account?{' '}
                 <NavLink to="/auth/signup-1" className="f-w-400">
                   Signup
                 </NavLink>
-              </p>
-              <Alert variant="primary" className="text-start mt-3">
+              </p> */}
+              {/* <Alert variant="primary" className="text-start mt-3">
                 User:
                 <CopyToClipboard text="info@codedthemes.com">
                   <Button variant="outline-primary" as={Link} to="#" className="badge mx-2 mb-2" size="sm">
@@ -52,7 +51,7 @@ const Signin1 = () => {
                     <i className="fa fa-lock" /> 123456
                   </Button>
                 </CopyToClipboard>
-              </Alert>
+              </Alert> */}
             </Card.Body>
           </Card>
         </div>
