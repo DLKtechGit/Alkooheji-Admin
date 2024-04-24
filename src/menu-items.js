@@ -12,32 +12,66 @@ const menuItems = {
           type: 'item',
           icon: 'feather icon-home',
           url: '/app/dashboard/default'
-        }
-      ]
-    },
-    
-    {
-      id: 'ui-forms',
-      title: 'FORMS & TABLES',
-      type: 'group',
-      icon: 'icon-group',
-      children: [
-        {
-          id: 'forms',
-          title: 'Form Elements',
-          type: 'item',
-          icon: 'feather icon-file-text',
-          url: '/forms/form-basic'
         },
-        {
-          id: 'table',
-          title: 'Table',
-          type: 'item',
-          icon: 'feather icon-server',
-          url: '/tables/bootstrap'
-        }
+      
       ]
     },
+
+
+    {
+      id:'users',
+      title: 'Users',
+      type:'group',
+      icon:'icon-user',
+      children:[
+        {
+          id:'creteuset',
+          title:'Create Users',
+          type:'item',
+          icon:'feather icon-user-plus',
+          url:'/create/user'
+        
+        },
+        
+        {
+          id:'list',
+          title:'Users List',
+          type:'item',
+          icon:"feather icon-list",
+          url:'/users/list'
+        }
+        ,{
+          id:'manageuser',
+          title:'Manage Users',
+          type:'item',
+          icon:'feather icon-edit',
+          url:'/manage/users'
+        },
+      ]
+    }
+    ,
+    // {
+    //   id: 'ui-forms',
+    //   title: 'FORMS & TABLES',
+    //   type: 'group',
+    //   icon: 'icon-group',
+    //   children: [
+    //     {
+    //       id: 'forms',
+    //       title: 'Form Elements',
+    //       type: 'item',
+    //       icon: 'feather icon-file-text',
+    //       url: '/forms/form-basic'
+    //     },
+    //     {
+    //       id: 'table',
+    //       title: 'Table',
+    //       type: 'item',
+    //       icon: 'feather icon-server',
+    //       url: '/tables/bootstrap'
+    //     }
+    //   ]
+    // },
     
     // {
     //   id: 'pages',

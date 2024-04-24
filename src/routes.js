@@ -48,8 +48,13 @@ const routes = [
   },
   {
     exact: 'true',
-    path: '/auth/reset-password-1',
+    path: '/auth/reset-password-1/:randomString/:expirationTimestamp',
     element: lazy(() => import('./views/auth/reset-password/ResetPassword1'))
+  },
+  {
+    exact:'true',
+    path:'/forgot/password',
+    element:lazy(()=>import('./views/auth/ForgotPassword/ForgotPassword'))
   },
   {
     path: '*',
@@ -61,11 +66,19 @@ const routes = [
         element: lazy(() => import('./views/dashboard'))
       },
       
-      
-      
-      
+      {
+        exact:'true',
+        path:'/create/user',
+        element:lazy(()=> import('./views/Users/CreateUsers'))
+
+      },
       
       {
+        exact: 'true',
+        path: '/users/list',
+        element: lazy(() => import('./views/Users/UserList'))
+      },
+  {
         exact: 'true',
         path: '/forms/form-basic',
         element: lazy(() => import('./views/forms/FormsElements'))
@@ -75,9 +88,13 @@ const routes = [
         path: '/tables/bootstrap',
         element: lazy(() => import('./views/tables/BootstrapTable'))
       },
-     
+     {
+exact:'true',
+path:'/manage/users',
+element:lazy(()=> import('./views/Users/Manageusers'))
+     }
   
-      
+      ,
       {
         path: '*',
         exact: 'true',

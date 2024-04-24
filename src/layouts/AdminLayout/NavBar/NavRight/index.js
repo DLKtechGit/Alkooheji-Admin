@@ -102,7 +102,7 @@ const NavRight = () => {
             <Dropdown.Menu align="end" className="profile-notification">
               <div className="pro-head">
                 <img src={avatar1} className="img-radius" alt="User Profile" />
-                <span>John Doe</span>
+                <span>Admin</span>
                 <Link to="#" className="dud-logout" title="Logout">
                   <i className="feather icon-log-out" />
                 </Link>
@@ -117,7 +117,7 @@ const NavRight = () => {
                
                 
                 <ListGroup.Item as="li" bsPrefix=" ">
-                  <Link to="#" className="dropdown-item">
+                  <Link to="/auth/signin-1" className="dropdown-item">
                     <i className="feather icon-log-out" /> Logout
                   </Link>
                 </ListGroup.Item>

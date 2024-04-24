@@ -27,7 +27,7 @@ const Signin1 = () => {
               <AuthLogin />
               <p className="mb-2 text-muted">
                 Forgot password?{' '}
-                <NavLink to="/auth/reset-password-1" className="f-w-400">
+                <NavLink to="/forgot/password" className="f-w-400">
                   Reset
                 </NavLink>
               </p>

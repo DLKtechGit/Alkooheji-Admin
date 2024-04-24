@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Spinner } from 'react-bootstrap'; 
+import { Card, Row, Col, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
 import AxiosService from '../../../utils/ApiService';
-import {toast,ToastContainer}from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const SignUp1 = () => {
-  const [loading, setLoading] = useState(false); 
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
       setLoading(true);
-      const res = await AxiosService.post(`/admin/login`, {
+      const res = await AxiosService.post(`http://localhost:3000/admin/login`, {
         email,
         password
       });
-  
+
       console.log('res----------->', res);
-  
+
       if (res.status === 200) {
-        sessionStorage.setItem("token", res.data.token);
-        sessionStorage.setItem("AdminData", JSON.stringify(res.data.Email));
+        sessionStorage.setItem('token', res.data.token);
+        sessionStorage.setItem('AdminData', JSON.stringify(res.data.Email));
         toast.success('Login Successfully');
         navigate('/app/dashboard/default');
       } else if (res.status === 404) {
@@ -37,7 +41,10 @@ const SignUp1 = () => {
       setLoading(false);
     }
   };
-  
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <React.Fragment>
@@ -50,12 +57,20 @@ const SignUp1 = () => {
             </div>
             <h3 className="mb-4">Sign In</h3>
             <div className="input-group mb-3">
-              <input type="email" className="form-control" onChange={(e)=>setEmail(e.target.value)} placeholder="Email address" />
+              <input type="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="Email address" />
             </div>
             <div className="input-group mb-4">
-              <input type="password" className="form-control" onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                style={{ borderRight: 'none' }}
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control"
+                placeholder="Password"
+              />
+              <span className="input-group-text" tabIndex="0" style={{ backgroundColor: '#F4F7FA' }} onClick={togglePasswordVisibility}>
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </span>
             </div>
-            {/* Conditional rendering of spinner when loading is true */}
             {loading ? (
               <Spinner animation="border" role="status" className="text-primary">
                 <span className="sr-only">Loading...</span>
@@ -68,7 +83,7 @@ const SignUp1 = () => {
           </Card.Body>
         </Col>
       </Row>
-      <ToastContainer/>
+      <ToastContainer />
     </React.Fragment>
   );
 };
