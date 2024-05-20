@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import AxiosService from '../../utils/ApiService';
+import { useNavigate } from 'react-router-dom';
+
 // import { Link } from 'react-router-dom';
 
 // import avatar1 from '../../assets/images/user/avatar-1.jpg';
@@ -11,15 +13,23 @@ import AxiosService from '../../utils/ApiService';
 
 const DashDefault = () => {
   const [userCount, setUserCounts] = useState('');
+  let naivgate = useNavigate()
   console.log('counr', userCount);
 
   useEffect(() => {
     getUsersCount();
   }, []);
 
+  useEffect(()=>{
+const logged = localStorage.getItem('login')=== 'true'
+if(!logged){
+  naivgate('/')
+}
+  },[])
+
   const getUsersCount = async () => {
     try {
-      const res = await AxiosService.get(`http://localhost:3000/user/getuserscount`);
+      const res = await AxiosService.get(`https://demo.partzrider.com/user/getuserscount`);
       const counts = res.data.count;
       setUserCounts(counts);
     } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { Card, Row, Col, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
@@ -6,19 +6,26 @@ import AxiosService from '../../../utils/ApiService';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
   import { FiEye, FiEyeOff } from 'react-icons/fi';
+  import { useLocation } from 'react-router-dom';
 
 const SignUp1 = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+const location = useLocation()
   const navigate = useNavigate();
+
+  useEffect(()=>{
+if(location.pathname === '/auth/signin-1'){
+  localStorage.clear()
+}
+  },[])
 
   const handleSignIn = async () => {
     try {
       setLoading(true);
-      const res = await AxiosService.post(`http://localhost:3000/admin/login`, {
+      const res = await AxiosService.post(`https://demo.partzrider.com/admin/login`, {
         email,
         password
       });
@@ -28,6 +35,7 @@ const SignUp1 = () => {
       if (res.status === 200) {
         sessionStorage.setItem('token', res.data.token);
         sessionStorage.setItem('AdminData', JSON.stringify(res.data.Email));
+        localStorage.setItem('login',true)
         toast.success('Login Successfully');
         navigate('/app/dashboard/default');
       } else if (res.status === 404) {

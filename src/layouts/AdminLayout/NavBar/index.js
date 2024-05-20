@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import mainlogo from '../../../assets/images/A letter tech logo (2).png'
 
 import NavLeft from './NavLeft';
 import NavRight from './NavRight';
@@ -43,9 +44,10 @@ const NavBar = () => {
         </Link>
         <Link to="#" className="b-brand">
           <div className="b-bg">
-            <i className="feather icon-trending-up" />
+          <img style={{width:'50px'}} src={mainlogo} alt='logo'/>
+            {/* <i className="feather icon-trending-up" /> */}
           </div>
-          <span className="b-title">Alkooheji</span>
+          <span className="b-title p-2">Alkooheji</span>
         </Link>
         <Link to="#" className={moreClass.join(' ')} onClick={() => setMoreToggle(!moreToggle)}>
           <i className="feather icon-more-vertical" />

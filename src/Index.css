@@ -1,4 +1,4 @@
-.card {
+/* .card {
     width: 350px;
     padding: 10px;
     border-radius: 20px;
@@ -35,4 +35,10 @@
   
   .cursor {
     cursor: pointer;
+  } */
+
+
+  #for{
+    border: none !important;    
+    background-color: #F4F7FA !important;
   }

@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const handleForgotPassword = async () => {
     try {
       setLoading(true);
-      const res = await AxiosService.post(`http://localhost:3000/admin/forget/password`, {
+      const res = await AxiosService.post(`https://demo.partzrider.com/admin/forget/password`, {
         email
       });
       if (res.status === 400) {

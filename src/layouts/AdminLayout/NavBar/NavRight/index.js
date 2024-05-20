@@ -103,17 +103,17 @@ const NavRight = () => {
               <div className="pro-head">
                 <img src={avatar1} className="img-radius" alt="User Profile" />
                 <span>Admin</span>
-                <Link to="#" className="dud-logout" title="Logout">
+                <Link to="/auth/signin-1" className="dud-logout" title="Logout">
                   <i className="feather icon-log-out" />
                 </Link>
               </div>
               <ListGroup as="ul" bsPrefix=" " variant="flush" className="pro-body">
                
-                <ListGroup.Item as="li" bsPrefix=" ">
+                {/* <ListGroup.Item as="li" bsPrefix=" ">
                   <Link to="#" className="dropdown-item">
                     <i className="feather icon-user" /> Profile
                   </Link>
-                </ListGroup.Item>
+                </ListGroup.Item> */}
                
                 
                 <ListGroup.Item as="li" bsPrefix=" ">
